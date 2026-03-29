@@ -1264,13 +1264,13 @@
       .ps-grid {
         display: grid !important;
         grid-auto-flow: column;
-        grid-template-rows: auto; /* Single row */
-        grid-template-columns: repeat(auto-fill, calc(50% - 7.5px)); /* 2 columns visible */
+        grid-auto-columns: calc(50% - 10px); /* Exactly 2 columns visible with gap */
+        grid-template-rows: auto;
         gap: 15px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         padding-right: 0;
-        padding-bottom: 20px;
+        padding-bottom: 25px;
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
@@ -1280,9 +1280,10 @@
         width: 100%;
       }
       .ps-img-wrapper {
-        border-radius: 14px;
-        border-width: 5px;
-        aspect-ratio: 3 / 4;
+        border-radius: 12px;
+        border-width: 4px;
+        aspect-ratio: 1 / 1; /* Making images square and larger */
+        width: 100%;
       }
       .ps-card-title { font-size: 16px; margin-bottom: 4px; }
       .ps-card-desc { font-size: 12px; line-height: 1.4; }
