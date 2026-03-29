@@ -1264,8 +1264,8 @@
       .ps-grid {
         display: grid !important;
         grid-auto-flow: column;
-        grid-template-rows: repeat(2, auto);
-        grid-template-columns: repeat(auto-fill, calc(50% - 7.5px)); /* 2 columns per view */
+        grid-template-rows: auto; /* Single row */
+        grid-template-columns: repeat(auto-fill, calc(50% - 7.5px)); /* 2 columns visible */
         gap: 15px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
@@ -2004,7 +2004,7 @@
 
       if (psGrid && pagination) {
         const cards = psGrid.querySelectorAll(".ps-card");
-        const cardsPerPage = 4;
+        const cardsPerPage = 2; // Show 2 cards per view (1 row, 2 columns)
         const totalPages = Math.ceil(cards.length / cardsPerPage);
 
         // Create diamond dots dynamically based on pages
