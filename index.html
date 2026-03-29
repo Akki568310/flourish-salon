@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flourish Hair Salon</title>
+  <title>Instyle Hair Salon</title>
 
   <!-- Fonts -->
   <link
@@ -45,26 +45,21 @@
       flex-direction: column;
       overflow: hidden;
       background-color: #050505; /* Dark fallback */
+      background-image: url('background image.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    .bg-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0; /* Changed from -2 */
-    }
-
-    .video-overlay {
+    .hero-section::after {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.45);
-      z-index: 1; /* Changed from -1 */
+      z-index: 1;
     }
 
     .navbar {
@@ -1376,10 +1371,7 @@
 <body>
   <!-- 1. HERO SECTION -->
   <section class="hero-section">
-    <video autoplay loop muted playsinline class="bg-video">
-      <source src="website2.mp4" type="video/mp4" />
-    </video>
-    <div class="video-overlay"></div>
+
     <header class="navbar">
       <div class="logo-container">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -1390,7 +1382,7 @@
           <path d="M2 12C2 12 5 9 9 9C13 9 16 12 16 12C16 12 13 15 9 15C5 15 2 12 2 12Z"></path>
         </svg>
         <div class="logo-text">
-          <span class="brand-title">FLOURISH</span>
+          <span class="brand-title">INSTYLE</span>
           <span class="brand-subtitle">HAIR SALON</span>
         </div>
       </div>
@@ -1404,7 +1396,7 @@
             <path d="M2 12C2 12 5 9 9 9C13 9 16 12 16 12C16 12 13 15 9 15C5 15 2 12 2 12Z"></path>
           </svg>
           <div class="logo-text">
-            <span class="brand-title">FLOURISH</span>
+            <span class="brand-title">INSTYLE</span>
             <span class="brand-subtitle" style="color:#d1d1d1;">HAIR SALON</span>
           </div>
         </div>
@@ -1443,7 +1435,7 @@
       </div>
     </header>
     <div class="hero-content">
-      <h3 class="sub-heading">Flourish Hair Salon</h3>
+      <h3 class="sub-heading">Instyle Hair Salon</h3>
       <h1 class="main-heading">Discover Your<br />Signature Look</h1>
       <div class="hero-buttons">
           <a href="#services" class="btn-explore">Explore Services &raquo;</a>
@@ -1886,7 +1878,7 @@
       <span>✦</span><span>✦</span><span>✦</span>
     </div>
     <div class="about-inline-text">
-      Welcome to Flourish Hair Salon, 
+      Welcome to Instyle Hair Salon, 
       <span class="inline-pill"></span> 
       where style meets satisfaction. We pride ourselves on offering a diverse range of premium services tailored to meet the needs of every client. 
       <div class="inline-avatars">
@@ -1912,11 +1904,11 @@
             <path d="M12 22C12 22 9 19 9 15C9 11 12 8 12 8C12 8 15 11 15 15C15 19 12 22 12 22Z"></path>
             <path d="M2 12C2 12 5 9 9 9C13 9 16 12 16 12C16 12 13 15 9 15C5 15 2 12 2 12Z"></path>
           </svg>
-          <span class="footer-logo-text">FLOURISH</span>
+          <span class="footer-logo-text">INSTYLE</span>
         </div>
         <p class="footer-desc">
           Elevating Grooming. Inspiring Style. Unleash Your Confidence at
-          Flourish where we craft exceptional looks that reflect your
+          Instyle where we craft exceptional looks that reflect your
           individuality, a passion for style and eye for detail.
         </p>
       </div>
@@ -1968,7 +1960,7 @@
     </div>
 
     <!-- Giant Text -->
-    <div class="footer-giant">FLOURISH</div>
+    <div class="footer-giant">INSTYLE</div>
 
     <!-- Copyright Bottom -->
     <div class="footer-bottom">
