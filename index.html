@@ -1282,11 +1282,27 @@
       .ps-img-wrapper {
         border-radius: 12px;
         border-width: 4px;
-        aspect-ratio: 1 / 1; /* Making images square and larger */
+        aspect-ratio: 1 / 1; 
         width: 100%;
+        height: auto; /* Allow aspect-ratio to lead */
+        max-height: 180px; /* Limit height to keep it uniform and clean */
       }
-      .ps-card-title { font-size: 16px; margin-bottom: 4px; }
-      .ps-card-desc { font-size: 12px; line-height: 1.4; }
+      .ps-card-title { 
+        font-size: 16px; 
+        margin-bottom: 4px; 
+        min-height: 48px; /* Standardize height for up to 2 lines */
+        display: flex;
+        align-items: center;
+      }
+      .ps-card-desc { 
+        font-size: 12px; 
+        line-height: 1.4; 
+        min-height: 52px; /* Standardize for 3 lines of text */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
       .ps-price-badge { font-size: 10px; padding: 4px 10px; top: 10px; right: 10px; }
       .ps-pagination { padding-right: 0; margin-top: 15px; }
       
