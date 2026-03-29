@@ -296,7 +296,7 @@
     .ps-card {
       display: flex;
       flex-direction: column;
-      flex: 0 0 320px; /* Fixed width for horizontal scroll */
+      flex: 0 0 400px; /* Increased from 320px for larger boxes */
       scroll-snap-align: start;
     }
 
@@ -363,7 +363,7 @@
 
     .ps-card-title {
       font-family: "Playfair Display", serif;
-      font-size: 24px;
+      font-size: 28px; /* Increased from 24px */
       color: #6a4a3a;
       margin-bottom: 8px;
       font-weight: 500;
@@ -1274,26 +1274,26 @@
       }
       .ps-grid::-webkit-scrollbar { display: none; }
       .ps-card {
-        flex: 0 0 calc(50% - 7.5px); /* Exactly 2 cards visible with gap */
+        flex: 0 0 90%;
         scroll-snap-align: start;
         background: #fff;
-        border-radius: 12px;
+        border-radius: 16px;
         display: flex;
         flex-direction: column;
-        height: auto; /* All same height due to uniform padding and min-heights */
+        height: auto;
       }
       .ps-img-wrapper {
-        border-radius: 10px;
+        border-radius: 14px;
         border-width: 4px;
         aspect-ratio: 1 / 1; 
         width: 100%;
-        height: 160px; /* Fixed height for ALL images on mobile */
+        height: 340px;
         overflow: hidden;
       }
       .ps-card-title { 
-        font-size: 15px; 
-        margin: 10px 0 4px 0;
-        min-height: 40px; /* Force 2-line height for all titles */
+        font-size: 22px;
+        margin: 14px 0 6px 0;
+        min-height: 50px; 
         display: flex;
         align-items: center;
         line-height: 1.3;
