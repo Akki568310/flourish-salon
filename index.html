@@ -1263,14 +1263,20 @@
       .ps-title { font-size: 28px; margin-bottom: 25px; }
       .ps-grid {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: column;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: repeat(auto-fill, calc(50% - 7.5px)); /* 2 columns per view */
         gap: 15px;
-        overflow-x: hidden;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         padding-right: 0;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
+      .ps-grid::-webkit-scrollbar { display: none; }
       .ps-card {
-        flex: unset;
+        scroll-snap-align: start;
         width: 100%;
       }
       .ps-img-wrapper {
@@ -1998,29 +2004,34 @@
 
       if (psGrid && pagination) {
         const cards = psGrid.querySelectorAll(".ps-card");
-        
-        // Create diamond dots dynamically
-        cards.forEach((_, index) => {
+        const cardsPerPage = 4;
+        const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+        // Create diamond dots dynamically based on pages
+        for (let i = 0; i < totalPages; i++) {
           const dot = document.createElement("div");
           dot.classList.add("ps-dot-indicator");
           dot.innerHTML = "◇";
-          if (index === 0) { dot.classList.add("active"); dot.innerHTML = "◆"; }
+          if (i === 0) { 
+            dot.classList.add("active"); 
+            dot.innerHTML = "◆"; 
+          }
           
           dot.addEventListener("click", () => {
-            const cardWidth = cards[0].offsetWidth + 30; // gap is 30
-            psGrid.scrollTo({ left: cardWidth * index, behavior: "smooth" });
+            const scrollAmount = psGrid.clientWidth * i;
+            psGrid.scrollTo({ left: scrollAmount, behavior: "smooth" });
           });
           
           pagination.appendChild(dot);
-        });
+        }
 
         // Update active dot on scroll
-        const dots = pagination.querySelectorAll(".ps-dot-indicator");
         psGrid.addEventListener("scroll", () => {
-          const cardWidth = cards[0].offsetWidth + 30;
           const scrollPosition = psGrid.scrollLeft;
-          const activeIndex = Math.round(scrollPosition / cardWidth);
+          const pageWidth = psGrid.clientWidth;
+          const activeIndex = Math.round(scrollPosition / pageWidth);
           
+          const dots = pagination.querySelectorAll(".ps-dot-indicator");
           dots.forEach((dot, index) => {
             if (index === activeIndex) {
               dot.classList.add("active");
