@@ -1262,46 +1262,51 @@
       .premium-services { padding: 40px 5%; }
       .ps-title { font-size: 28px; margin-bottom: 25px; }
       .ps-grid {
-        display: grid !important;
-        grid-auto-flow: column;
-        grid-auto-columns: calc(50% - 10px); /* Exactly 2 columns visible with gap */
-        grid-template-rows: auto;
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: nowrap;
         gap: 15px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        padding-right: 0;
         padding-bottom: 25px;
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
       .ps-grid::-webkit-scrollbar { display: none; }
       .ps-card {
+        flex: 0 0 calc(50% - 7.5px); /* Exactly 2 cards visible with gap */
         scroll-snap-align: start;
-        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        height: auto; /* All same height due to uniform padding and min-heights */
       }
       .ps-img-wrapper {
-        border-radius: 12px;
+        border-radius: 10px;
         border-width: 4px;
         aspect-ratio: 1 / 1; 
         width: 100%;
-        height: auto; /* Allow aspect-ratio to lead */
-        max-height: 180px; /* Limit height to keep it uniform and clean */
+        height: 160px; /* Fixed height for ALL images on mobile */
+        overflow: hidden;
       }
       .ps-card-title { 
-        font-size: 16px; 
-        margin-bottom: 4px; 
-        min-height: 48px; /* Standardize height for up to 2 lines */
+        font-size: 15px; 
+        margin: 10px 0 4px 0;
+        min-height: 40px; /* Force 2-line height for all titles */
         display: flex;
         align-items: center;
+        line-height: 1.3;
       }
       .ps-card-desc { 
         font-size: 12px; 
         line-height: 1.4; 
-        min-height: 52px; /* Standardize for 3 lines of text */
+        min-height: 50px; /* Force 3-line height for all descriptions */
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        color: #666;
       }
       .ps-price-badge { font-size: 10px; padding: 4px 10px; top: 10px; right: 10px; }
       .ps-pagination { padding-right: 0; margin-top: 15px; }
